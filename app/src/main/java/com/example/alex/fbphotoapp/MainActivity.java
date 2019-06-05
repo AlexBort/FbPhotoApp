@@ -24,8 +24,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
         callbackManager = CallbackManager.Factory.create();
+        setContentView(R.layout.activity_main);
+
 
         loginButton = findViewById(R.id.login_button);
         AccessToken accessToken = AccessToken.getCurrentAccessToken();
