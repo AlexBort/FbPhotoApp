@@ -20,6 +20,8 @@ public class GalleryActivity extends AppCompatActivity implements GalleryContrac
         setContentView(R.layout.activity_gallery);
         recyclerView = findViewById(R.id.recycler_view);
         swipeRefreshLayout = findViewById(R.id.swipe_refresh);
+        
+
         presenter = new GalleryPresenterImpl(this);
 
     }

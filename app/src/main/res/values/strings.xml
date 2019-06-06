@@ -1,7 +1,10 @@
 <resources>
     <string name="app_name">FbPhotoApp</string>
 
+    <!--<string name="facebook_app_id">619061405263492</string>
+    <string name="fb_login_protocol_scheme">fb1787958844654931</string>-->
     <string name="facebook_app_id">1787958844654931</string>
     <string name="fb_login_protocol_scheme">fb1787958844654931</string>
+
 
 </resources>

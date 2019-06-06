@@ -77,17 +77,17 @@ public final class Album {
         this.url = var1;
     }
 
-    @NotNull
-    public final Album convertToAlbum(@NotNull Data picture) {
-
-    }
+//    @NotNull
+//    public final Album convertToAlbum(@NotNull Data picture) {
+//
+//    }
 
     public boolean equals(@Nullable Object other) {
-
+        return true;
     }
 
     public int hashCode() {
-      
+        return 0;
     }
 
 
