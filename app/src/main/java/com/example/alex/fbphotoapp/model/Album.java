@@ -1,12 +1,9 @@
 package com.example.alex.fbphotoapp.model;
 
-import android.graphics.Picture;
 import android.support.annotation.Nullable;
 
 import com.google.gson.annotations.SerializedName;
 import com.j256.ormlite.field.DatabaseField;
-
-import org.jetbrains.annotations.NotNull;
 
 public final class Album {
 
