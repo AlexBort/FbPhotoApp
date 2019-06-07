@@ -2,10 +2,8 @@ package com.example.alex.fbphotoapp.api;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
 import org.jetbrains.annotations.NotNull;
 
-import retrofit2.Converter;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -23,11 +21,12 @@ public final class FbGraphApi {
     }
 
     public final FbGraphApi.GatewayApi getApi() {
-        Gson gson = (new GsonBuilder()).setDateFormat("yyyy-MM-dd HH:mm:ss").setLenient().create();
+        Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").setLenient().create();
         Retrofit retrofit =
-                (new Retrofit.Builder()).baseUrl(this.BASE_URL).
+                new Retrofit.Builder().baseUrl(this.BASE_URL).
                         addConverterFactory(GsonConverterFactory.
-                                create(gson)).addCallAdapterFactory(RxJavaCallAdapterFactory.create()).build();
+                                create(gson)).addCallAdapterFactory
+                        (RxJavaCallAdapterFactory.create()).build();
         return retrofit.create(FbGraphApi.GatewayApi.class);
     }
 

@@ -19,8 +19,10 @@ public class RestManager {
         this.graphApi = new FbGraphApi();
     }
 
+    @SuppressWarnings("unchecked")
     public final void getAlbums(AccessToken token, final AlbumPresenter presenter) {
-        this.graphApi.getApi().getAlbums(token.getUserId(), token.getToken(), "picture,name,created_time").
+        this.graphApi.getApi().
+                getAlbums(token.getUserId(), token.getToken(), "picture,name,created_time").
                 subscribeOn(Schedulers.newThread()).
                 observeOn(AndroidSchedulers.mainThread()).
                 subscribe(new Subscriber() {
@@ -43,7 +45,7 @@ public class RestManager {
 
     }
 
-    public final void getPhoto(AccessToken token, BasePresenter presenter) {
+    public final void getPhoto(AccessToken token, BasePresenter<com.example.alex.fbphotoapp.mvp.base.IBaseView> presenter) {
 
 
     }
