@@ -88,6 +88,8 @@ public final class Album {
         this.url = url;
         return this;
     }
+    
+    // todo: we should override equals() and hashcode()
 
 
 }
