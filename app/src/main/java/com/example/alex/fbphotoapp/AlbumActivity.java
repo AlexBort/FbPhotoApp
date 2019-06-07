@@ -6,8 +6,8 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
 import com.example.alex.fbphotoapp.mvp.base.BaseActivity;
-import com.example.alex.fbphotoapp.mvp.gallery.AlbumPresenter;
-import com.example.alex.fbphotoapp.mvp.gallery.IAlbumView;
+import com.example.alex.fbphotoapp.mvp.album.AlbumPresenter;
+import com.example.alex.fbphotoapp.mvp.album.IAlbumView;
 
 public class AlbumActivity extends BaseActivity<AlbumPresenter> implements IAlbumView {
 
@@ -36,12 +36,12 @@ public class AlbumActivity extends BaseActivity<AlbumPresenter> implements IAlbu
 
 
     @Override
-    public void showGallery() {
+    public void showAlbum() {
 
     }
 
     @Override
-    public void updateGallery() {
+    public void updateAlbum() {
 
     }
 }

@@ -1,11 +1,11 @@
-package com.example.alex.fbphotoapp.mvp.gallery;
+package com.example.alex.fbphotoapp.mvp.album;
 
 import com.example.alex.fbphotoapp.mvp.base.IBaseView;
 
 public interface IAlbumView extends IBaseView {
 
-    void showGallery();
+    void showAlbum();
 
-    void updateGallery();
+    void updateAlbum();
 
 }
