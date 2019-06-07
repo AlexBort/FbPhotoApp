@@ -5,6 +5,8 @@ import android.support.annotation.Nullable;
 import com.google.gson.annotations.SerializedName;
 import com.j256.ormlite.field.DatabaseField;
 
+import org.jetbrains.annotations.NotNull;
+
 public final class Album {
 
 
@@ -74,17 +76,17 @@ public final class Album {
         this.url = var1;
     }
 
-//    @NotNull
-//    public final Album convertToAlbum(@NotNull Data picture) {
-//
-//    }
+    @NotNull
+    public final Album convertToAlbum(@NotNull AlbumResponse.Data data) {
+        this.id = data.getId();
+        this.name = data.getName();
+        this.created_time = data.getCreated_time();
+        AlbumResponse.Picture picture = data.getPicture();
+        AlbumResponse.Datum datum = picture != null ? picture.getData() : null;
 
-    public boolean equals(@Nullable Object other) {
-        return true;
-    }
-
-    public int hashCode() {
-        return 0;
+        String url = datum != null && datum.getUrl() != null ? datum.getUrl() : "";
+        this.url = url;
+        return this;
     }
 
 
