@@ -13,8 +13,13 @@ public class AlbumData extends BaseDaoImpl<Album, Integer> {
         super(connectionSource, dataClass);
     }
 
-    public List<Album> getAllAlbums() throws SQLException {
-        return this.queryForAll();
+    public List<Album> getAllAlbums()  {
+        try {
+            return this.queryForAll();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public void saveAlbum(Album obj) {

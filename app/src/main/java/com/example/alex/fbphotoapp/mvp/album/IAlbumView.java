@@ -4,10 +4,11 @@ import com.example.alex.fbphotoapp.model.Album;
 import com.example.alex.fbphotoapp.mvp.base.IBaseView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public interface IAlbumView extends IBaseView {
 
-    void showAlbums(ArrayList<Album> list);
+    void showAlbums(List<Album> list);
 
     void updateAlbum(Album album);
 

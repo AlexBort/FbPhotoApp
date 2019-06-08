@@ -2,6 +2,7 @@ package com.example.alex.fbphotoapp;
 
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
@@ -11,6 +12,7 @@ import com.example.alex.fbphotoapp.mvp.album.AlbumPresenter;
 import com.example.alex.fbphotoapp.mvp.album.IAlbumView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class AlbumActivity extends BaseActivity<AlbumPresenter> implements IAlbumView {
 
@@ -37,10 +39,16 @@ public class AlbumActivity extends BaseActivity<AlbumPresenter> implements IAlbu
 
     }
 
+    private void fillAdapter(List<Album> list) {
+        RecyclerAdapter adapter = new RecyclerAdapter((ArrayList<Album>) list);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(adapter);
+    }
+
 
     @Override
-    public void showAlbums(ArrayList<Album> list) {
-
+    public void showAlbums(List<Album> list) {
+        fillAdapter(list);
     }
 
     @Override

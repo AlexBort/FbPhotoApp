@@ -48,9 +48,13 @@ public class DbHelper extends OrmLiteSqliteOpenHelper {
         Log.e(TAG, "error onUpgrade" + DATABASE_NAME + "from ver " + oldVersion);
     }
 
-    public AlbumData getAlbumData() throws SQLException {
+    public AlbumData getAlbumData() {
         if (albumData == null) {
-            albumData = new AlbumData(getConnectionSource(), Album.class);
+            try {
+                albumData = new AlbumData(getConnectionSource(), Album.class);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
         return albumData;
     }

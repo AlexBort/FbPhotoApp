@@ -1,5 +1,10 @@
 package com.example.alex.fbphotoapp.mvp.album;
 
+import android.support.constraint.solver.widgets.Helper;
+
+import com.example.alex.fbphotoapp.db.AlbumData;
+import com.example.alex.fbphotoapp.db.DbHelper;
+import com.example.alex.fbphotoapp.db.HelperFactory;
 import com.example.alex.fbphotoapp.model.Album;
 import com.example.alex.fbphotoapp.model.AlbumResponse;
 import com.example.alex.fbphotoapp.mvp.base.BasePresenter;
@@ -9,10 +14,13 @@ import com.facebook.AccessToken;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 public class AlbumPresenter extends BasePresenter<IAlbumView> {
 
     private RequestManager requestManager;
+    private ArrayList<Album> listAlbums = new ArrayList<>();
+    private AlbumData albumData = HelperFactory.getHelper().getAlbumData();
 
 
     public AlbumPresenter() {
@@ -23,6 +31,23 @@ public class AlbumPresenter extends BasePresenter<IAlbumView> {
 
     }
 
+
+    private void getAlbums(IAlbumView view) {
+        List<Album> list = albumData.getAllAlbums();
+        view.showAlbums(list);
+        requestAlbum(view);
+    }
+
+
+    private boolean isAlbumExist(Album album) {
+        List<Album> list = albumData.getAllAlbums();
+        for (Album model : list) {
+            if (model.equals(album)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     private void requestAlbum(final IAlbumView view) {
 //        val albumsList = dao.allAlbums
@@ -36,42 +61,13 @@ public class AlbumPresenter extends BasePresenter<IAlbumView> {
                         for (AlbumResponse.Data data : list) {
                             Album album = new Album();
                             album = album.convertToAlbum(data);
-                            view.updateAlbum(album);
+                            if (!isAlbumExist(album)) {
+                                albumData.saveAlbum(album);
+                                view.updateAlbum(album);
+                            }
                         }
+//                        view.showAlbums(listAlbums);
                     }
-
-
-//                    ArrayList list = response.getData();
-//                    for (Object o : list) {
-//
-//                    }
-
-
-//                    if (response != null) {
-//                        ArrayList var10000 = response.getData();
-//                        if (var10000 != null) {
-//                            ArrayList var2 = var10000;
-//                            int var4 = false;
-//                            Iterable $receiver$iv = (Iterable)var2;
-//                            Iterator var6 = $receiver$iv.iterator();
-//
-//                            while(var6.hasNext()) {
-//                                Object element$iv = var6.next();
-//                                Data it = (Data)element$iv;
-//                                int var9 = false;
-//                                Album album = (new Album()).convertToAlbum(it);
-//                                if (!this.isAlbumExist(album)) {
-//                                    this.dao.saveAlbum(album);
-//                                    AlbumsView var12 = this.mViewMvp;
-//                                    if (this.mViewMvp != null) {
-//                                        var12.updateView(album);
-//                                    }
-//                                }
-//                            }
-//                        }
-//                    }
-
-
                 }
 
 
@@ -87,6 +83,6 @@ public class AlbumPresenter extends BasePresenter<IAlbumView> {
     @Override
     public void onBindView(IAlbumView view) {
         super.onBindView(view);
-        requestAlbum(view);
+        getAlbums(view);
     }
 }
