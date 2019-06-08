@@ -1,19 +1,15 @@
 package com.example.alex.fbphotoapp.mvp.album;
 
-import android.support.constraint.solver.widgets.Helper;
-
 import com.example.alex.fbphotoapp.db.AlbumData;
-import com.example.alex.fbphotoapp.db.DbHelper;
 import com.example.alex.fbphotoapp.db.HelperFactory;
 import com.example.alex.fbphotoapp.model.Album;
 import com.example.alex.fbphotoapp.model.AlbumResponse;
 import com.example.alex.fbphotoapp.mvp.base.BasePresenter;
-import com.example.alex.fbphotoapp.new_api.RequestManager;
-import com.example.alex.fbphotoapp.new_api.ResponseListener;
+import com.example.alex.fbphotoapp.api.RequestManager;
+import com.example.alex.fbphotoapp.api.ResponseListener;
 import com.facebook.AccessToken;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class AlbumPresenter extends BasePresenter<IAlbumView> {

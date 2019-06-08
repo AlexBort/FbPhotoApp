@@ -17,6 +17,7 @@ import java.util.List;
 public class AlbumActivity extends BaseActivity<AlbumPresenter> implements IAlbumView {
 
     private RecyclerView recyclerView;
+    private AlbumRecyclerAdapter adapter;
     private SwipeRefreshLayout swipeRefreshLayout;
 
     @Override
@@ -40,7 +41,7 @@ public class AlbumActivity extends BaseActivity<AlbumPresenter> implements IAlbu
     }
 
     private void fillAdapter(List<Album> list) {
-        RecyclerAdapter adapter = new RecyclerAdapter((ArrayList<Album>) list);
+        adapter = new AlbumRecyclerAdapter((ArrayList<Album>) list);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
     }
@@ -53,6 +54,6 @@ public class AlbumActivity extends BaseActivity<AlbumPresenter> implements IAlbu
 
     @Override
     public void updateAlbum(Album album) {
-
+        adapter.addToAdapter(album);
     }
 }

@@ -13,31 +13,35 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
+public class AlbumRecyclerAdapter extends RecyclerView.Adapter<AlbumRecyclerAdapter.ViewHolder> {
 
     private ArrayList<Album> list;
 
-    public RecyclerAdapter(ArrayList<Album> list) {
+    public AlbumRecyclerAdapter(ArrayList<Album> list) {
         this.list = list;
     }
 
-
     @NonNull
     @Override
-    public RecyclerAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public AlbumRecyclerAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_album, viewGroup, false);
 //        view.setLayoutParams(new RecyclerView.LayoutParams(RecyclerView.LayoutParams.MATCH_PARENT, RecyclerView.LayoutParams.WRAP_CONTENT));
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerAdapter.ViewHolder viewHolder, int position) {
+    public void onBindViewHolder(@NonNull AlbumRecyclerAdapter.ViewHolder viewHolder, int position) {
         Album album = list.get(position);
 
         Picasso.get().load(album.getUrl()).into(viewHolder.imageView);
         viewHolder.textAlbum.setText(album.getName());
         viewHolder.textDateCreate.setText(album.getCreated_time());
 
+    }
+
+    public void addToAdapter(Album album) {
+        list.add(album);
+        notifyDataSetChanged();
     }
 
     @Override
@@ -62,5 +66,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
 
     }
+
 
 }

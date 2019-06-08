@@ -1,9 +1,8 @@
-package com.example.alex.fbphotoapp.new_api;
+package com.example.alex.fbphotoapp.api;
 
 
 import com.example.alex.fbphotoapp.model.AlbumResponse;
 import com.example.alex.fbphotoapp.model.IResponse;
-import com.example.alex.fbphotoapp.model.PhotoResponse;
 import com.facebook.AccessToken;
 import com.google.gson.Gson;
 

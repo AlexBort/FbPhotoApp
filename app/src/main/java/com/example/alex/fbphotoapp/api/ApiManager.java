@@ -1,4 +1,4 @@
-package com.example.alex.fbphotoapp.new_api;
+package com.example.alex.fbphotoapp.api;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;

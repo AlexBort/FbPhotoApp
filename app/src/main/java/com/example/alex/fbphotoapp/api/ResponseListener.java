@@ -1,4 +1,4 @@
-package com.example.alex.fbphotoapp.new_api;
+package com.example.alex.fbphotoapp.api;
 
 import com.example.alex.fbphotoapp.model.IResponse;
 
