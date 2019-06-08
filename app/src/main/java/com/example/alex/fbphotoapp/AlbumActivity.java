@@ -5,9 +5,12 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
+import com.example.alex.fbphotoapp.model.Album;
 import com.example.alex.fbphotoapp.mvp.base.BaseActivity;
 import com.example.alex.fbphotoapp.mvp.album.AlbumPresenter;
 import com.example.alex.fbphotoapp.mvp.album.IAlbumView;
+
+import java.util.ArrayList;
 
 public class AlbumActivity extends BaseActivity<AlbumPresenter> implements IAlbumView {
 
@@ -36,12 +39,12 @@ public class AlbumActivity extends BaseActivity<AlbumPresenter> implements IAlbu
 
 
     @Override
-    public void showAlbum() {
+    public void showAlbums(ArrayList<Album> list) {
 
     }
 
     @Override
-    public void updateAlbum() {
+    public void updateAlbum(Album album) {
 
     }
 }
