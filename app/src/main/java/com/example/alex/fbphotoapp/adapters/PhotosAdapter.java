@@ -4,10 +4,12 @@ import android.animation.Animator;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.example.alex.fbphotoapp.R;
 import com.squareup.picasso.Picasso;
@@ -20,6 +22,19 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.ViewHolder
     private Context context;
     private Animator mCurrentAnimator;
     private int mShortAnimationDuration;
+    private LinearLayout container;
+
+    public PhotosAdapter(ArrayList photosList, LinearLayout container) {
+        this.list = photosList;
+        this.container = container;
+    }
+
+    public final int sizeImage() {
+        DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
+        int width = displayMetrics.widthPixels;
+        return (width / 3);
+    }
+
 
     @NonNull
     @Override
