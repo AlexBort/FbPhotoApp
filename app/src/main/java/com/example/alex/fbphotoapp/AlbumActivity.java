@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
+import com.example.alex.fbphotoapp.adapters.AlbumAdapter;
 import com.example.alex.fbphotoapp.model.Album;
 import com.example.alex.fbphotoapp.mvp.base.BaseActivity;
 import com.example.alex.fbphotoapp.mvp.album.AlbumPresenter;
@@ -17,7 +18,7 @@ import java.util.List;
 public class AlbumActivity extends BaseActivity<AlbumPresenter> implements IAlbumView {
 
     private RecyclerView recyclerView;
-    private AlbumRecyclerAdapter adapter;
+    private AlbumAdapter adapter;
     private SwipeRefreshLayout swipeRefreshLayout;
 
     @Override
@@ -41,7 +42,7 @@ public class AlbumActivity extends BaseActivity<AlbumPresenter> implements IAlbu
     }
 
     private void fillAdapter(List<Album> list) {
-        adapter = new AlbumRecyclerAdapter((ArrayList<Album>) list);
+        adapter = new AlbumAdapter((ArrayList<Album>) list);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
     }
