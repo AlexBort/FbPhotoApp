@@ -56,7 +56,7 @@ public class AlbumPresenter extends BasePresenter<IAlbumView> {
                         ArrayList<AlbumResponse.Data> list = response.getData();
                         for (AlbumResponse.Data data : list) {
                             Album album = new Album();
-                            album = album.convertToAlbum(data);
+                            album = album.toAlbum(data);
                             if (!isAlbumExist(album)) {
                                 albumData.saveAlbum(album);
                                 view.updateAlbum(album);

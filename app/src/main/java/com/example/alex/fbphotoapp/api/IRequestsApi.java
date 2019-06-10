@@ -14,11 +14,16 @@ public interface IRequestsApi {
 
     @GET("{userId}/albums")
     @NotNull
-    Call<AlbumResponse> getAlbums(@Path("userId") @NotNull String var1, @Query("access_token")
-    @NotNull String var2, @Query("fields") @NotNull String var3);
+    Call<AlbumResponse> getAlbums(@Path("userId") @NotNull String var1,
+                                  @Query("access_token")
+    @NotNull String var2,
+                                  @Query("fields") @NotNull String var3);
 
     @GET("{userId}/photos")
     @NotNull
-    Call<PhotoResponse> getPhotos(@Path("userId") @NotNull String var1, @Query("access_token") @NotNull String var2, @Query("fields") @NotNull String var3, @Query("type") @NotNull String var4);
+    Call<PhotoResponse> getPhotos(@Path("userId") @NotNull String var1,
+                                  @Query("access_token") @NotNull String var2,
+                                  @Query("fields") @NotNull String var3,
+                                  @Query("type") @NotNull String var4);
 
 }

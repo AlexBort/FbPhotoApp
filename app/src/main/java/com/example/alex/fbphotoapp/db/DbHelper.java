@@ -59,9 +59,13 @@ public class DbHelper extends OrmLiteSqliteOpenHelper {
         return albumData;
     }
 
-    public PhotoData getPhotoData() throws SQLException {
+    public PhotoData getPhotoData()  {
         if (photoData == null) {
-            photoData = new PhotoData(getConnectionSource(), Photo.class);
+            try {
+                photoData = new PhotoData(getConnectionSource(), Photo.class);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
         return photoData;
     }

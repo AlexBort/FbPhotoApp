@@ -3,6 +3,7 @@ package com.example.alex.fbphotoapp.api;
 
 import com.example.alex.fbphotoapp.model.AlbumResponse;
 import com.example.alex.fbphotoapp.model.IResponse;
+import com.example.alex.fbphotoapp.model.PhotoResponse;
 import com.facebook.AccessToken;
 import com.google.gson.Gson;
 
@@ -72,9 +73,9 @@ public class RequestManager {
 
 
     public final void getPhotos(AccessToken token, final ResponseListener listener) {
-//        Call<PhotoResponse> call = manager.getRequestsApi().
-//                getPhotos();
-//        call.enqueue(createCallback(PhotoResponse.class, listener));
+        Call<PhotoResponse> call = manager.getRequestsApi().
+                getPhotos(token.getUserId(), token.getToken(), "created_time,album,source", "uploaded");
+        call.enqueue(createCallback(PhotoResponse.class, listener));
     }
 
     public final void getAlbums(AccessToken token, final ResponseListener listener) {

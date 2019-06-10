@@ -15,8 +15,13 @@ public class PhotoData extends BaseDaoImpl<Photo, Integer> {
         super(connectionSource, dataClass);
     }
 
-    public List<Photo> getAllPhotos() throws SQLException {
-        return this.queryForAll();
+    public List<Photo> getAllPhotos() {
+        try {
+            return this.queryForAll();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public void savePhoto(Photo obj) {

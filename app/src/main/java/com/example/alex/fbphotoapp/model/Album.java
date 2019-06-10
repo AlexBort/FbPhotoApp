@@ -77,7 +77,7 @@ public final class Album {
     }
 
     @NotNull
-    public final Album convertToAlbum(@NotNull AlbumResponse.Data data) {
+    public final Album toAlbum(@NotNull AlbumResponse.Data data) {
         this.id = data.getId();
         this.name = data.getName();
         this.created_time = data.getCreated_time();
@@ -88,8 +88,5 @@ public final class Album {
         this.url = url;
         return this;
     }
-    
-    // todo: we should override equals() and hashcode()
-
 
 }

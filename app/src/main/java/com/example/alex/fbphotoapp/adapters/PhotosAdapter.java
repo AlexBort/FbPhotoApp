@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.example.alex.fbphotoapp.R;
+import com.example.alex.fbphotoapp.model.Photo;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -52,12 +53,23 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
         String url = list.get(position);
+
+        viewHolder.imageView.getLayoutParams().width = sizeImage();
+        viewHolder.imageView.getLayoutParams().height = sizeImage();
+
+
         Picasso.get().load(url).into(viewHolder.imageView);
+    }
+
+    public void addToAdapter(Photo photo) {
+        String url = photo.getUrl();
+        list.add(url);
+        notifyDataSetChanged();
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return list.size();
     }
 
     public final class ViewHolder extends RecyclerView.ViewHolder {
