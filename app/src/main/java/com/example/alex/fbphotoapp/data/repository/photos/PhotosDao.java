@@ -1,13 +1,13 @@
-package winstars.winstars.facebookphoto.data.repository.photos;
+package com.example.alex.fbphotoapp.data.repository.photos;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Query;
 
-import java.util.List;
+import com.example.alex.fbphotoapp.data.model.dao.PhotoEntity;
+import com.example.alex.fbphotoapp.data.repository.BaseDao;
 
-import winstars.winstars.facebookphoto.data.entity.dao.PhotoEntity;
-import winstars.winstars.facebookphoto.data.repository.BaseDao;
+import java.util.List;
 
 @Dao
 public interface PhotosDao extends BaseDao<PhotoEntity> {

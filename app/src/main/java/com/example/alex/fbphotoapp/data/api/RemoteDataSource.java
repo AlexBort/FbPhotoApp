@@ -3,6 +3,7 @@ package com.example.alex.fbphotoapp.data.api;
 import com.example.alex.fbphotoapp.data.model.dto.Album;
 import com.example.alex.fbphotoapp.data.model.dto.PageModel;
 import com.example.alex.fbphotoapp.data.model.dto.Photo;
+import com.example.alex.fbphotoapp.data.storage.SessionSharedPreferences;
 
 import java.util.concurrent.TimeUnit;
 
@@ -14,13 +15,12 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
-import winstars.winstars.facebookphoto.data.storage.SessionSharedPreferences;
 
 public class RemoteDataSource {
 
     private static RemoteDataSource instance;
     private PhotoService service;
-    private static final String BASE_URL = "https://graph.facebook.com/v3.2/";
+    public static final String BASE_URL = "https://graph.facebook.com/v3.2/";
 
     private RemoteDataSource() {
         Retrofit retrofit = createRetrofit(createOkHttpClientBuilder());

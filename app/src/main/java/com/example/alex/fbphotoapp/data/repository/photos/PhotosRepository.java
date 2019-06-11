@@ -1,13 +1,13 @@
-package winstars.winstars.facebookphoto.data.repository.photos;
+package com.example.alex.fbphotoapp.data.repository.photos;
 
 import android.app.Application;
 import android.arch.lifecycle.LiveData;
 import android.os.AsyncTask;
 
-import java.util.List;
+import com.example.alex.fbphotoapp.data.model.dao.PhotoEntity;
+import com.example.alex.fbphotoapp.data.repository.BaseRepository;
 
-import winstars.winstars.facebookphoto.data.entity.dao.PhotoEntity;
-import winstars.winstars.facebookphoto.data.repository.BaseRepository;
+import java.util.List;
 
 public class PhotosRepository extends BaseRepository<PhotoEntity> {
 

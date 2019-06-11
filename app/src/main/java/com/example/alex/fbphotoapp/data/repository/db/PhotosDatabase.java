@@ -8,8 +8,7 @@ import android.content.Context;
 import com.example.alex.fbphotoapp.data.model.dao.AlbumEntity;
 import com.example.alex.fbphotoapp.data.model.dao.PhotoEntity;
 import com.example.alex.fbphotoapp.data.repository.albums.AlbumsDao;
-
-import winstars.winstars.facebookphoto.data.repository.photos.PhotosDao;
+import com.example.alex.fbphotoapp.data.repository.photos.PhotosDao;
 
 
 @Database(entities = {PhotoEntity.class, AlbumEntity.class}, version = 1, exportSchema = false)
