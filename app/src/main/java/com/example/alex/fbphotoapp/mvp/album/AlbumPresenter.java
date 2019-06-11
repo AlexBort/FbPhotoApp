@@ -1,6 +1,7 @@
 package com.example.alex.fbphotoapp.mvp.album;
 
 import com.example.alex.fbphotoapp.db.AlbumData;
+import com.example.alex.fbphotoapp.db.DbHelper;
 import com.example.alex.fbphotoapp.db.HelperFactory;
 import com.example.alex.fbphotoapp.model.Album;
 import com.example.alex.fbphotoapp.model.AlbumResponse;
@@ -16,11 +17,15 @@ public class AlbumPresenter extends BasePresenter<IAlbumView> {
 
     private RequestManager requestManager;
     private ArrayList<Album> listAlbums = new ArrayList<>();
-    private AlbumData albumData = HelperFactory.getHelper().getAlbumData();
+    private AlbumData albumData;
 
 
     public AlbumPresenter() {
         this.requestManager = new RequestManager();
+        DbHelper helper = HelperFactory.getHelper();
+        if (helper != null && helper.getAlbumData() != null) {
+            albumData = helper.getAlbumData();
+        }
     }
 
     public void responseAlbums(AlbumResponse response) {
@@ -29,8 +34,10 @@ public class AlbumPresenter extends BasePresenter<IAlbumView> {
 
 
     private void getAlbums(IAlbumView view) {
-        List<Album> list = albumData.getAllAlbums();
-        view.showAlbums(list);
+        if (albumData != null) {
+            List<Album> list = albumData.getAllAlbums();
+            view.showAlbums(list);
+        }
         requestAlbum(view);
     }
 
