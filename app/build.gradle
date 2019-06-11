@@ -21,6 +21,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
 
     /* packagingOptions {
          exclude 'META-INF/rxjava.properties'
@@ -69,5 +73,8 @@ dependencies {
     implementation 'com.eightbitlab:blurview:1.4.0'
 
     implementation 'org.jetbrains:annotations-java5:15.0'
+
+    implementation 'com.github.chrisbanes:PhotoView:2.1.4'
+    implementation 'fr.tvbarthel.blurdialogfragment:lib:2.2.0'
 
 }

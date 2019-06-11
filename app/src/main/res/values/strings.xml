@@ -7,4 +7,15 @@
     <string name="fb_login_protocol_scheme">fb1787958844654931</string>
 
 
+
+    <!--Main Activity Screen-->
+    <string name="title_login_via_facebook">Login via Facebook</string>
+    <string name="title_albums">Albums</string>
+    <string name="title_photo_details">Detail</string>
+
+    <!--Toasts-->
+    <string name="title_toast_cancel">Cancel</string>
+    <string name="title_toast_something_went_wrong">Something went wrong. Try again.</string>
+
+
 </resources>

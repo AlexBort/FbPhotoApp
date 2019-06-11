@@ -1,7 +1,8 @@
 package com.example.alex.fbphotoapp.utils;
 
-import android.widget.ImageView;
 import android.databinding.BindingAdapter;
+import android.widget.ImageView;
+
 import com.bumptech.glide.Glide;
 
 public class DataBindingAdapters {
