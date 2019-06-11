@@ -1,4 +1,4 @@
-package winstars.winstars.facebookphoto.data.repository;
+package com.example.alex.fbphotoapp.data.repository;
 
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;

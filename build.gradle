@@ -16,6 +16,7 @@ buildscript {
 
 ext {
     roomVersion = '1.1.1'
+    glide = '4.8.0'
 }
 
 allprojects {

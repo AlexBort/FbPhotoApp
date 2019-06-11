@@ -1,13 +1,14 @@
-package winstars.winstars.facebookphoto.data.repository.db;
+package com.example.alex.fbphotoapp.data.repository.db;
 
 import android.arch.persistence.room.Database;
 import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
-import winstars.winstars.facebookphoto.data.entity.dao.AlbumEntity;
-import winstars.winstars.facebookphoto.data.entity.dao.PhotoEntity;
-import winstars.winstars.facebookphoto.data.repository.albums.AlbumsDao;
+import com.example.alex.fbphotoapp.data.model.dao.AlbumEntity;
+import com.example.alex.fbphotoapp.data.model.dao.PhotoEntity;
+import com.example.alex.fbphotoapp.data.repository.albums.AlbumsDao;
+
 import winstars.winstars.facebookphoto.data.repository.photos.PhotosDao;
 
 
@@ -21,8 +22,8 @@ public abstract class PhotosDatabase extends RoomDatabase {
             synchronized (PhotosDatabase.class) {
                 if (instance == null) {
                     instance = Room.databaseBuilder(context.getApplicationContext(),
-                               PhotosDatabase.class, "photos_database")
-                               .build();
+                            PhotosDatabase.class, "photos_database")
+                            .build();
                 }
             }
         }
@@ -30,5 +31,6 @@ public abstract class PhotosDatabase extends RoomDatabase {
     }
 
     public abstract PhotosDao photosDao();
+
     public abstract AlbumsDao albumsDao();
 }

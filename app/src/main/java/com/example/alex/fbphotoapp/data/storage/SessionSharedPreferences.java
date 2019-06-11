@@ -1,4 +1,4 @@
-package winstars.winstars.facebookphoto.data.storage;
+package com.example.alex.fbphotoapp.data.storage;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -20,13 +20,13 @@ public class SessionSharedPreferences {
     }
 
     public static SessionSharedPreferences init(Context context) {
-       if (instance == null) {
-           instance = new SessionSharedPreferences(context);
-       }
-       return instance;
+        if (instance == null) {
+            instance = new SessionSharedPreferences(context);
+        }
+        return instance;
     }
 
-    public static SessionSharedPreferences get(){
+    public static SessionSharedPreferences get() {
         return instance;
     }
 

@@ -1,10 +1,11 @@
-package winstars.winstars.facebookphoto.data.repository;
+package com.example.alex.fbphotoapp.data.repository;
 
 import android.app.Application;
 
+import com.example.alex.fbphotoapp.data.repository.db.PhotosDatabase;
+
 import java.util.List;
 
-import winstars.winstars.facebookphoto.data.repository.db.PhotosDatabase;
 
 public abstract class BaseRepository<T> {
 
